@@ -91,8 +91,11 @@ PAGE_CSS = f"""
   .mono{{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
     font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:{BRAND_MUTED}}}
   h1{{font-size:34px;line-height:1.2;margin:.4em 0 .2em;font-weight:600}}
-  video{{width:100%;border-radius:8px;background:#000;display:block;
-    border:1px solid rgba(20,20,19,.12)}}
+  /* the width/height attributes are presentational hints, so height="1080" lands as
+     a CSS height and letterboxes the player. height:auto + aspect-ratio undoes that
+     while keeping the attributes for crawlers and layout stability. */
+  video{{width:100%;height:auto;aspect-ratio:16/9;border-radius:8px;background:#000;
+    display:block;border:1px solid rgba(20,20,19,.12)}}
   .desc{{white-space:pre-wrap;margin:20px 0;font-size:17px}}
   .row{{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0}}
   .btn{{display:inline-block;padding:9px 15px;border-radius:999px;text-decoration:none;
