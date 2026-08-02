@@ -111,7 +111,7 @@ PAGE_CSS = f"""
     background:rgba(20,20,19,.06);font-size:12px;color:{BRAND_MUTED}}}
   .card{{display:block;text-decoration:none;color:inherit;border:1px solid rgba(20,20,19,.12);
     border-radius:10px;overflow:hidden;background:#fff;margin:18px 0}}
-  .card img{{width:100%;display:block}}
+  .card img{{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block}}
   .card .body{{padding:14px 16px}}
   .card h2{{margin:0 0 6px;font-size:21px;font-weight:600;line-height:1.25}}
   footer{{margin-top:44px;padding-top:18px;border-top:1px solid rgba(20,20,19,.12)}}
