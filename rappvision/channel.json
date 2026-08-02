@@ -1,0 +1,88 @@
+{
+    "schema": "rapp-vision-channel/1.0",
+    "id": "field-notes",
+    "name": "Field Notes",
+    "handle": "@kody-w",
+    "tagline": "Post-mortems from autonomous systems that looked perfectly healthy while being completely frozen.",
+    "avatar": "\u2731",
+    "links": [
+        {
+            "label": "Source repo",
+            "url": "https://github.com/kody-w/rappvision-field-notes"
+        },
+        {
+            "label": "RAPP Vision",
+            "url": "https://kody-w.github.io/rapp-vision/"
+        }
+    ],
+    "_note": "Sources and thumbs resolve RELATIVE TO THIS FILE'S URL, so this channel plays from any host or mirror. Adding a video means one entry in this array plus `python3 build.py` — the landing page, per-video share pages and the RSS feed all regenerate from here.",
+    "videos": [
+        {
+            "id": "platform-relaunch-recap",
+            "title": "Two platforms were silently deadlocked for 19 days. Both looked perfectly healthy.",
+            "description": "Two GitHub-native platforms, each frozen by one overlooked line, and neither of them showing a single error.\n\nRAPPterverse rendered its first paint in 168ms with zero JavaScript exceptions and zero failed requests \u2014 while its world had not merged in 19 days. An agent owned by one GitHub account had its heartbeat running under a different one, so the action validator rejected every pull request it opened: 100 out of 100 CI runs failed and 679 identical PRs stacked up behind the gate.\n\nThe obvious fix \u2014 reassign the agent \u2014 was wrong, and the test suite proved it: that agent is the fixture that demonstrates the permission gate works at all. The schema had already promised delegation the code never implemented, so the repair was consent-based delegation. The controller grants a delegate, ownership never moves, and a delegate cannot widen its own grant.\n\nRappterbook failed the same way for a completely different reason. Six workflows sat at a 100% failure rate, every one dying at the push, because a single state file had grown to 101.17MB \u2014 past GitHub's hard 100MB limit. GitHub rejects the entire push, so one oversized file held the whole write path hostage and the live site started returning 404s. The file was already listed in .gitignore, but gitignore only applies to files that are not tracked yet, and this one was.\n\nBoth outages were the same shape: an invariant nobody was watching, and a write path that jammed in silence. So each platform ended up with the other's lesson as an automated guard \u2014 both proven by making them fail on purpose first.",
+            "published": "2026-08-01",
+            "duration": 127.2,
+            "width": 1920,
+            "height": 1080,
+            "orientation": "landscape",
+            "tags": [
+                "post-mortem",
+                "github-actions",
+                "ci",
+                "debugging",
+                "autonomous-agents",
+                "incident-review"
+            ],
+            "thumb": "thumbs/platform-relaunch-recap.jpg",
+            "sources": [
+                {
+                    "src": "media/platform-relaunch-recap.webm",
+                    "type": "video/webm; codecs=\"vp9, opus\""
+                },
+                {
+                    "src": "media/platform-relaunch-recap.mp4",
+                    "type": "video/mp4; codecs=\"avc1.640028, mp4a.40.2\""
+                }
+            ],
+            "chapters": [
+                {
+                    "t": 0,
+                    "label": "Both sites were up. Neither was alive."
+                },
+                {
+                    "t": 2.6,
+                    "label": "GitHub is the stack \u2014 and its one sharp edge"
+                },
+                {
+                    "t": 19.2,
+                    "label": "19 days frozen, 0 of 210 agents acting"
+                },
+                {
+                    "t": 35.2,
+                    "label": "100% validation failure, 679 stuck PRs"
+                },
+                {
+                    "t": 47.7,
+                    "label": "The fix: consent, not transfer"
+                },
+                {
+                    "t": 64.3,
+                    "label": "Six workflows, one rejected push"
+                },
+                {
+                    "t": 81.0,
+                    "label": "Ignored by gitignore, still tracked"
+                },
+                {
+                    "t": 95.4,
+                    "label": "Each platform gets the other's guard"
+                },
+                {
+                    "t": 114.7,
+                    "label": "Both running"
+                }
+            ]
+        }
+    ]
+}

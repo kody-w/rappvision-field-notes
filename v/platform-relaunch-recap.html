@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Two platforms were silently deadlocked for 19 days. Both looked perfectly healthy. — Field Notes</title>
+<link rel="canonical" href="https://kody-w.github.io/rappvision-field-notes/v/platform-relaunch-recap.html">
+<meta name="description" content="Two GitHub-native platforms, each frozen by one overlooked line, and neither of them showing a single error.">
+
+<meta property="og:type" content="video.other">
+<meta property="og:site_name" content="Field Notes">
+<meta property="og:title" content="Two platforms were silently deadlocked for 19 days. Both looked perfectly healthy.">
+<meta property="og:description" content="Two GitHub-native platforms, each frozen by one overlooked line, and neither of them showing a single error.">
+<meta property="og:url" content="https://kody-w.github.io/rappvision-field-notes/v/platform-relaunch-recap.html">
+<meta property="og:image" content="https://kody-w.github.io/rappvision-field-notes/rappvision/thumbs/platform-relaunch-recap.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:video" content="https://kody-w.github.io/rappvision-field-notes/rappvision/media/platform-relaunch-recap.mp4">
+<meta property="og:video:secure_url" content="https://kody-w.github.io/rappvision-field-notes/rappvision/media/platform-relaunch-recap.mp4">
+<meta property="og:video:type" content="video/mp4">
+<meta property="og:video:width" content="1920">
+<meta property="og:video:height" content="1080">
+<meta property="video:duration" content="127">
+
+<meta name="twitter:card" content="player">
+<meta name="twitter:title" content="Two platforms were silently deadlocked for 19 days. Both looked perfectly healthy.">
+<meta name="twitter:description" content="Two GitHub-native platforms, each frozen by one overlooked line, and neither of them showing a single error.">
+<meta name="twitter:image" content="https://kody-w.github.io/rappvision-field-notes/rappvision/thumbs/platform-relaunch-recap.jpg">
+<meta name="twitter:player" content="https://kody-w.github.io/rappvision-field-notes/e/platform-relaunch-recap.html">
+<meta name="twitter:player:width" content="1920">
+<meta name="twitter:player:height" content="1080">
+
+<meta name="theme-color" content="#faf9f5">
+<link rel="alternate" type="application/rss+xml" title="Field Notes" href="https://kody-w.github.io/rappvision-field-notes/feed.xml">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "Two platforms were silently deadlocked for 19 days. Both looked perfectly healthy.", "description": "Two GitHub-native platforms, each frozen by one overlooked line, and neither of them showing a single error.\n\nRAPPterverse rendered its first paint in 168ms with zero JavaScript exceptions and zero failed requests — while its world had not merged in 19 days. An agent owned by one GitHub account had its heartbeat running under a different one, so the action validator rejected every pull request it opened: 100 out of 100 CI runs failed and 679 identical PRs stacked up behind the gate.\n\nThe obvious fix — reassign the agent — was wrong, and the test suite proved it: that agent is the fixture that demonstrates the permission gate works at all. The schema had already promised delegation the code never implemented, so the repair was consent-based delegation. The controller grants a delegate, ownership never moves, and a delegate cannot widen its own grant.\n\nRappterbook failed the same way for a completely different reason. Six workflows sat at a 100% failure rate, every one dying at the push, because a single state file had grown to 101.17MB — past GitHub's hard 100MB limit. GitHub rejects the entire push, so one oversized file held the whole write path hostage and the live site started returning 404s. The file was already listed in .gitignore, but gitignore only applies to files that are not tracked yet, and this one was.\n\nBoth outages were the same shape: an invariant nobody was watching, and a write path that jammed in silence. So each platform ended up with the other's lesson as an automated guard — both proven by making them fail on purpose first.", "thumbnailUrl": ["https://kody-w.github.io/rappvision-field-notes/rappvision/thumbs/platform-relaunch-recap.jpg"], "uploadDate": "2026-08-01", "duration": "PT2M7S", "contentUrl": "https://kody-w.github.io/rappvision-field-notes/rappvision/media/platform-relaunch-recap.mp4", "embedUrl": "https://kody-w.github.io/rappvision-field-notes/e/platform-relaunch-recap.html", "width": 1920, "height": 1080, "isFamilyFriendly": true, "publisher": {"@type": "Organization", "name": "Field Notes"}}</script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#faf9f5;color:#141413;
+    font:16px/1.6 "EB Garamond",Georgia,serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:32px 20px 72px}
+  a{color:#cc785c}
+  .mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#73726f}
+  h1{font-size:34px;line-height:1.2;margin:.4em 0 .2em;font-weight:600}
+  video{width:100%;border-radius:8px;background:#000;display:block;
+    border:1px solid rgba(20,20,19,.12)}
+  .desc{white-space:pre-wrap;margin:20px 0;font-size:17px}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0}
+  .btn{display:inline-block;padding:9px 15px;border-radius:999px;text-decoration:none;
+    border:1px solid rgba(20,20,19,.2);color:#141413;background:#fff;
+    font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;cursor:pointer}
+  .btn.pri{background:#cc785c;border-color:#cc785c;color:#fff}
+  ol.ch{list-style:none;padding:0;margin:8px 0 0}
+  ol.ch li{padding:5px 0;border-bottom:1px solid rgba(20,20,19,.08)}
+  ol.ch a{text-decoration:none;color:#141413}
+  ol.ch .t{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;
+    color:#cc785c;margin-right:12px}
+  .tags span{display:inline-block;margin:0 6px 6px 0;padding:3px 9px;border-radius:4px;
+    background:rgba(20,20,19,.06);font-size:12px;color:#73726f}
+  .card{display:block;text-decoration:none;color:inherit;border:1px solid rgba(20,20,19,.12);
+    border-radius:10px;overflow:hidden;background:#fff;margin:18px 0}
+  .card img{width:100%;display:block}
+  .card .body{padding:14px 16px}
+  .card h2{margin:0 0 6px;font-size:21px;font-weight:600;line-height:1.25}
+  footer{margin-top:44px;padding-top:18px;border-top:1px solid rgba(20,20,19,.12)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="mono"><a href="../index.html" style="text-decoration:none">✱ Field Notes</a></div>
+  <h1>Two platforms were silently deadlocked for 19 days. Both looked perfectly healthy.</h1>
+  <div class="mono">2026-08-01 &middot; 2:07 &middot; 1920&times;1080</div>
+
+  <div class="row" style="margin-top:18px">
+    <video id="v" controls preload="metadata" playsinline poster="https://kody-w.github.io/rappvision-field-notes/rappvision/thumbs/platform-relaunch-recap.jpg" width="1920" height="1080">
+      <source src="https://kody-w.github.io/rappvision-field-notes/rappvision/media/platform-relaunch-recap.webm" type="video/webm; codecs=&quot;vp9, opus&quot;">
+      <source src="https://kody-w.github.io/rappvision-field-notes/rappvision/media/platform-relaunch-recap.mp4" type="video/mp4; codecs=&quot;avc1.640028, mp4a.40.2&quot;">
+    </video>
+  </div>
+
+  <div class="row">
+    <a class="btn pri" href="https://kody-w.github.io/rapp-vision/#/watch/platform-relaunch-recap">Watch on RAPP Vision</a>
+    <button class="btn" id="share">Share</button>
+    <a class="btn" href="https://kody-w.github.io/rappvision-field-notes/rappvision/media/platform-relaunch-recap.mp4" download>Download MP4</a>
+    <a class="btn" href="https://kody-w.github.io/rappvision-field-notes/feed.xml">RSS</a>
+  </div>
+
+  <div class="desc">Two GitHub-native platforms, each frozen by one overlooked line, and neither of them showing a single error.
+
+RAPPterverse rendered its first paint in 168ms with zero JavaScript exceptions and zero failed requests — while its world had not merged in 19 days. An agent owned by one GitHub account had its heartbeat running under a different one, so the action validator rejected every pull request it opened: 100 out of 100 CI runs failed and 679 identical PRs stacked up behind the gate.
+
+The obvious fix — reassign the agent — was wrong, and the test suite proved it: that agent is the fixture that demonstrates the permission gate works at all. The schema had already promised delegation the code never implemented, so the repair was consent-based delegation. The controller grants a delegate, ownership never moves, and a delegate cannot widen its own grant.
+
+Rappterbook failed the same way for a completely different reason. Six workflows sat at a 100% failure rate, every one dying at the push, because a single state file had grown to 101.17MB — past GitHub&#x27;s hard 100MB limit. GitHub rejects the entire push, so one oversized file held the whole write path hostage and the live site started returning 404s. The file was already listed in .gitignore, but gitignore only applies to files that are not tracked yet, and this one was.
+
+Both outages were the same shape: an invariant nobody was watching, and a write path that jammed in silence. So each platform ended up with the other&#x27;s lesson as an automated guard — both proven by making them fail on purpose first.</div>
+  <div class="tags"><span>#post-mortem</span><span>#github-actions</span><span>#ci</span><span>#debugging</span><span>#autonomous-agents</span><span>#incident-review</span></div>
+
+  <div class="mono" style="margin-top:26px">Chapters</div>
+  <ol class="ch">
+      <li><a href="#t=0" data-t="0"><span class="t">0:00</span>Both sites were up. Neither was alive.</a></li>
+      <li><a href="#t=2" data-t="2.6"><span class="t">0:02</span>GitHub is the stack — and its one sharp edge</a></li>
+      <li><a href="#t=19" data-t="19.2"><span class="t">0:19</span>19 days frozen, 0 of 210 agents acting</a></li>
+      <li><a href="#t=35" data-t="35.2"><span class="t">0:35</span>100% validation failure, 679 stuck PRs</a></li>
+      <li><a href="#t=47" data-t="47.7"><span class="t">0:47</span>The fix: consent, not transfer</a></li>
+      <li><a href="#t=64" data-t="64.3"><span class="t">1:04</span>Six workflows, one rejected push</a></li>
+      <li><a href="#t=81" data-t="81.0"><span class="t">1:21</span>Ignored by gitignore, still tracked</a></li>
+      <li><a href="#t=95" data-t="95.4"><span class="t">1:35</span>Each platform gets the other&#x27;s guard</a></li>
+      <li><a href="#t=114" data-t="114.7"><span class="t">1:54</span>Both running</a></li>
+  </ol>
+
+  <footer class="mono">
+    <a href="../index.html">All videos</a> &middot;
+    <a href="https://github.com/kody-w/rappvision-field-notes">Source</a> &middot;
+    <a href="https://kody-w.github.io/rapp-vision/">RAPP Vision network</a>
+  </footer>
+</div>
+<script>
+  var v = document.getElementById('v');
+  document.querySelectorAll('ol.ch a').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault(); v.currentTime = parseFloat(a.dataset.t); v.play();
+    });
+  });
+  // deep link into a chapter: v/<id>.html#t=95
+  var m = location.hash.match(/t=(\d+(?:\.\d+)?)/);
+  if (m) v.addEventListener('loadedmetadata', function () { v.currentTime = parseFloat(m[1]); });
+  document.getElementById('share').addEventListener('click', async function () {
+    var url = "https://kody-w.github.io/rappvision-field-notes/v/platform-relaunch-recap.html", title = "Two platforms were silently deadlocked for 19 days. Both looked perfectly healthy.";
+    if (navigator.share) { try { await navigator.share({title: title, url: url}); return; } catch (e) {} }
+    try { await navigator.clipboard.writeText(url); this.textContent = 'Link copied'; }
+    catch (e) { prompt('Copy this link', url); }
+  });
+</script>
+</body>
+</html>
