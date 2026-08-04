@@ -84,7 +84,11 @@
                     "label": "rapp-sentinel",
                     "url": "https://github.com/kody-w/rapp-sentinel"
                 }
-            ]
+            ],
+            "source": {
+                "kind": "script",
+                "project": "~/videos/above-not-beside"
+            }
         },
         {
             "id": "platform-relaunch-recap",
@@ -151,7 +155,11 @@
                     "t": 114.7,
                     "label": "Both running"
                 }
-            ]
+            ],
+            "source": {
+                "kind": "script",
+                "project": "~/videos/platform-relaunch-recap"
+            }
         }
     ]
 }

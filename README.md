@@ -80,3 +80,35 @@ pre-receive hook then rejected **every** push, taking six workflows down with it
 
 Code in this repo (`build.py`, page templates): MIT.
 Video content: © the author, all rights reserved.
+
+
+## YouTube export
+
+Turn any video in this channel into an upload-ready bundle:
+
+```bash
+python3 export-youtube.py --list                          # what can export, and to what
+python3 export-youtube.py above-not-beside                # 16:9, as published
+python3 export-youtube.py above-not-beside --format square # 1:1
+python3 export-youtube.py above-not-beside --format shorts # 9:16
+```
+
+Each bundle contains the video, a thumbnail, `title.txt`, `tags.txt`, and a
+`description.txt` with the chapter timestamps already formatted for YouTube.
+
+**Two kinds of video export differently.** Script-based videos are built from a
+HyperFrames composition and can be retargeted to any ratio. Burned-in
+recordings — a live RAPP Vision session captured to video — have their framing
+baked into the pixels, so reformatting one could only crop, which would cut off
+captions and lower thirds. The exporter refuses rather than doing that quietly.
+
+**Retargeting fits and pads; it never crops.** Rewriting a composition's root
+`data-width`/`data-height` and re-rendering looks like the right answer and is
+not: the layout is still the 1920-wide one, simply cut off at the edge. The
+render succeeds and `ffprobe` reports the dimensions you asked for, so the
+output is quietly broken. Retargets are verified against `ffprobe` after the
+fact rather than trusted to a zero exit code.
+
+The exporter also checks your chapters against YouTube's rules — start at 0:00,
+at least 3, each 10s or longer — because breaking any of them makes YouTube
+silently render no chapters at all.
