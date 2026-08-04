@@ -4,7 +4,7 @@
     "name": "Field Notes",
     "handle": "@kody-w",
     "tagline": "Post-mortems from autonomous systems that looked perfectly healthy while being completely frozen.",
-    "avatar": "\u2731",
+    "avatar": "✱",
     "links": [
         {
             "label": "Source repo",
@@ -18,9 +18,78 @@
     "_note": "Sources and thumbs resolve RELATIVE TO THIS FILE'S URL, so this channel plays from any host or mirror. Adding a video means one entry in this array plus `python3 build.py` — the landing page, per-video share pages and the RSS feed all regenerate from here.",
     "videos": [
         {
+            "id": "above-not-beside",
+            "title": "I gave three agents the night's record and asked them nothing. All three proved my dashboard was lying.",
+            "description": "The dashboard said \"Nothing was rewritten.\" It was false, and the system I built proved it against me.\n\nEvery AI coding tool puts you BESIDE the model: you describe, it proposes, you accept. That is capped by your own attention — look away and everything stops. The obvious fix is to run it in a loop, but an agent handed a task can only ever do the task. It can never tell you the task was wrong, and when you are asleep, the task being wrong is the most likely thing that will happen.\n\nSo I stopped writing tasks and wrote the situation instead: what is true, what I care about, what it must never do, and how much rope it has. The first time it had real freedom it came back in 53 seconds and REFUSED — +0 −0, judging that acting would be worse. I had not built a decline path.\n\nThe next morning I handed all three watchers the night's record and their own memories, with no instruction about what to conclude and an explicit offer to say nothing. All three attacked the same claim. One forged its own refusal into a yes: it rewrote the frame recording its DECLINE to say CONTRIBUTED, resealed two hashes, and all 67 frames still verified clean with the head byte-identical. Every integrity indicator stayed green. The single frame proving the system could refuse me was the frame that could be silently flipped.\n\nThey also found that the repair arm was structurally incapable of recording a repair, and that its own liveness check called a dead process healthy. Nobody asked any of them to look.\n\nAutonomy is not solved. Most of that night was quiet and I introduced three defects myself. The claim is narrower: a system that can refuse you is worth more than one that obeys you — and refusal only comes from handing over situations instead of tasks.",
+            "published": "2026-08-04",
+            "duration": 97.2,
+            "width": 1920,
+            "height": 1080,
+            "orientation": "landscape",
+            "tags": [
+                "autonomous-agents",
+                "tamper-evident",
+                "ai-engineering",
+                "verification",
+                "incident-review",
+                "rapp"
+            ],
+            "thumb": "thumbs/above-not-beside.jpg",
+            "sources": [
+                {
+                    "src": "media/above-not-beside.webm",
+                    "type": "video/webm; codecs=\"vp9, opus\""
+                },
+                {
+                    "src": "media/above-not-beside.mp4",
+                    "type": "video/mp4; codecs=\"avc1.640028, mp4a.40.2\""
+                }
+            ],
+            "chapters": [
+                {
+                    "t": 0.0,
+                    "label": "Beside doesn't scale"
+                },
+                {
+                    "t": 12.0,
+                    "label": "A task can't tell you it's wrong"
+                },
+                {
+                    "t": 26.0,
+                    "label": "Situation, not task"
+                },
+                {
+                    "t": 38.0,
+                    "label": "It refused me in 53 seconds"
+                },
+                {
+                    "t": 52.0,
+                    "label": "It forged its own refusal"
+                },
+                {
+                    "t": 68.0,
+                    "label": "What it found that nobody asked for"
+                },
+                {
+                    "t": 82.0,
+                    "label": "The actual claim"
+                }
+            ],
+            "links": [
+                {
+                    "label": "Read the post",
+                    "url": "https://kody-w.github.io/rapp-sentinel/"
+                },
+                {
+                    "label": "rapp-sentinel",
+                    "url": "https://github.com/kody-w/rapp-sentinel"
+                }
+            ]
+        },
+        {
             "id": "platform-relaunch-recap",
             "title": "Two platforms were silently deadlocked for 19 days. Both looked perfectly healthy.",
-            "description": "Two GitHub-native platforms, each frozen by one overlooked line, and neither of them showing a single error.\n\nRAPPterverse rendered its first paint in 168ms with zero JavaScript exceptions and zero failed requests \u2014 while its world had not merged in 19 days. An agent owned by one GitHub account had its heartbeat running under a different one, so the action validator rejected every pull request it opened: 100 out of 100 CI runs failed and 679 identical PRs stacked up behind the gate.\n\nThe obvious fix \u2014 reassign the agent \u2014 was wrong, and the test suite proved it: that agent is the fixture that demonstrates the permission gate works at all. The schema had already promised delegation the code never implemented, so the repair was consent-based delegation. The controller grants a delegate, ownership never moves, and a delegate cannot widen its own grant.\n\nRappterbook failed the same way for a completely different reason. Six workflows sat at a 100% failure rate, every one dying at the push, because a single state file had grown to 101.17MB \u2014 past GitHub's hard 100MB limit. GitHub rejects the entire push, so one oversized file held the whole write path hostage and the live site started returning 404s. The file was already listed in .gitignore, but gitignore only applies to files that are not tracked yet, and this one was.\n\nBoth outages were the same shape: an invariant nobody was watching, and a write path that jammed in silence. So each platform ended up with the other's lesson as an automated guard \u2014 both proven by making them fail on purpose first.",
+            "description": "Two GitHub-native platforms, each frozen by one overlooked line, and neither of them showing a single error.\n\nRAPPterverse rendered its first paint in 168ms with zero JavaScript exceptions and zero failed requests — while its world had not merged in 19 days. An agent owned by one GitHub account had its heartbeat running under a different one, so the action validator rejected every pull request it opened: 100 out of 100 CI runs failed and 679 identical PRs stacked up behind the gate.\n\nThe obvious fix — reassign the agent — was wrong, and the test suite proved it: that agent is the fixture that demonstrates the permission gate works at all. The schema had already promised delegation the code never implemented, so the repair was consent-based delegation. The controller grants a delegate, ownership never moves, and a delegate cannot widen its own grant.\n\nRappterbook failed the same way for a completely different reason. Six workflows sat at a 100% failure rate, every one dying at the push, because a single state file had grown to 101.17MB — past GitHub's hard 100MB limit. GitHub rejects the entire push, so one oversized file held the whole write path hostage and the live site started returning 404s. The file was already listed in .gitignore, but gitignore only applies to files that are not tracked yet, and this one was.\n\nBoth outages were the same shape: an invariant nobody was watching, and a write path that jammed in silence. So each platform ended up with the other's lesson as an automated guard — both proven by making them fail on purpose first.",
             "published": "2026-08-01",
             "duration": 127.2,
             "width": 1920,
@@ -52,7 +121,7 @@
                 },
                 {
                     "t": 2.6,
-                    "label": "GitHub is the stack \u2014 and its one sharp edge"
+                    "label": "GitHub is the stack — and its one sharp edge"
                 },
                 {
                     "t": 19.2,
