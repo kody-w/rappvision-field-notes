@@ -1,5 +1,9 @@
 # ✱ Field Notes
 
+<!-- rapp1:network-header:start -->
+[![RAPP/1](https://kody-w.github.io/rapp-hive-public/portfolio/badges/rappvision-field-notes.svg)](https://github.com/kody-w/rapp-hive-public/blob/main/portfolio/repos/rappvision-field-notes.md) · **New to RAPP?** [Start here: get your Brainstem →](https://github.com/kody-w/rapp-installer#start-here)
+<!-- rapp1:network-header:end -->
+
 A [RAPP Vision](https://kody-w.github.io/rapp-vision/) channel.
 
 > Post-mortems from autonomous systems that looked perfectly healthy while being completely frozen.
